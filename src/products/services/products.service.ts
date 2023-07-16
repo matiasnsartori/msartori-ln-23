@@ -19,7 +19,8 @@ export class ProductsService {
   }
 
   create(body: any) {
-    const newTask = this.productsRepository.create(body);
+    const newProduct = this.productsRepository.create(body);
+    return this.productsRepository.save(newProduct);
   }
 
   async update(id, body: any) {
