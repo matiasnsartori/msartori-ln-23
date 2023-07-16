@@ -1,20 +1,15 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne } from 'typeorm';
-import { Category } from './category.entity';
-import { State } from './state.entity';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
-export class Products {
+@Entity({ name: 'productos' })
+export class Product {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ unique: true })
   sku: number;
 
   @Column()
-  id_categoria!: number;
-
-  @OneToOne(() => Category, (category) => category.id)
-  category!: Category;
+  id_categoria: number;
 
   @Column()
   nombre_producto: string;
@@ -23,11 +18,8 @@ export class Products {
   descripcion: string;
 
   @Column({ type: 'decimal', precision: 10, scale: 2, default: 0 })
-  price: number;
+  precio: number;
 
   @Column()
   id_estado: number;
-
-  @OneToOne(() => State, (state) => state.id)
-  state!: State;
 }
