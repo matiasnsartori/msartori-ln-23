@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
-import { ProductsModule } from './products/products.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule } from '@nestjs/config';
+import { Product } from './entities/product.entity';
+import { ProductsService } from './services/products.service';
+import { ProductsController } from './controllers/products.controller';
 
 @Module({
   imports: [
@@ -18,10 +19,9 @@ import { ConfigModule } from '@nestjs/config';
       retryAttempts: 5,
       retryDelay: 3000,
     }),
-    ProductsModule,
-    ConfigModule.forRoot({ isGlobal: true }),
+    TypeOrmModule.forFeature([Product]),
   ],
-  controllers: [],
-  providers: [],
+  controllers: [ProductsController],
+  providers: [ProductsService],
 })
-export class AppModule {}
+export class ProductsModule {}

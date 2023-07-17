@@ -3,6 +3,6 @@ export class UpdateProductDto {
   id_categoria?: number;
   nombre_producto?: string;
   descripcion?: string;
-  price?: number;
+  precio?: number;
   id_estado?: number;
 }
