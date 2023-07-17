@@ -7,10 +7,10 @@ export class Category {
   id: number;
 
   @Column()
-  Category_0: 'Nacional';
+  0: 'Nacional';
 
   @Column()
-  Category_1: 'Importado';
+  1: 'Importado';
 
   @OneToMany(() => Product, (product) => product.id_categoria)
   products: Product[];

@@ -7,10 +7,10 @@ export class State {
   id: number;
 
   @Column()
-  State_0: 'Habilitado';
+  0: 'Deshabilitado';
 
   @Column()
-  State_1: 'Deshabilitado';
+  1: 'habilitado';
 
   @OneToMany(() => Product, (product) => product.id_estado)
   products: Product[];

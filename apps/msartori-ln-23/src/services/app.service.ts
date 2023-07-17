@@ -4,7 +4,7 @@ import { CreateProductDto } from 'apps/products/src/dto/create-product.dto';
 import { UpdateProductDto } from 'apps/products/src/dto/update-user.dto';
 import { Product } from 'apps/products/src/entities/product.entity';
 import { Observable } from 'rxjs';
-import { productCommands } from './commands/product.commands';
+import { productCommands } from '../commands/product.commands';
 
 @Injectable()
 export class AppService {

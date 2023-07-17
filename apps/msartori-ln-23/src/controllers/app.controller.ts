@@ -8,7 +8,7 @@ import {
   ParseIntPipe,
   Body,
 } from '@nestjs/common';
-import { AppService } from './app.service';
+import { AppService } from '../services/app.service';
 import { Product } from 'apps/products/src/entities/product.entity';
 import { Observable } from 'rxjs';
 import { CreateProductDto } from 'apps/products/src/dto/create-product.dto';
