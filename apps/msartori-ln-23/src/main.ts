@@ -14,6 +14,6 @@ async function bootstrap() {
     new HttpExceptionsFilter(app.get(ConfigService)),
     new AllExceptionsFilter(app.get(HttpAdapterHost)),
   );
-  await app.listen(3000);
+  await app.listen(3001);
 }
 bootstrap();

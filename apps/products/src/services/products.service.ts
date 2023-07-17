@@ -1,8 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { Product } from '../entities/product.entity';
-import { AppDataSource } from 'ormconfig';
+import { Repository } from 'typeorm';
 import { CreateProductDto } from '../dto/create-product.dto';
 import { UpdateProductDto } from '../dto/update-user.dto';
 
@@ -13,12 +12,13 @@ export class ProductsService {
     private productsRepository: Repository<Product>,
   ) {}
 
-  findAll() {
-    return this.productsRepository.find();
+  async findAll() {
+    return await this.productsRepository.find();
   }
 
-  findOne(id: number) {
-    return this.productsRepository.findOne({
+  async findOne(id: number) {
+    console.log('id', id);
+    return await this.productsRepository.findOne({
       where: { id },
     });
   }
@@ -29,9 +29,11 @@ export class ProductsService {
   }
 
   async update(id: number, product: UpdateProductDto) {
+    console.log({ id });
     const updatedProduct = await this.productsRepository.findOne({
       where: { id },
     });
+    console.log({ updatedProduct });
     return this.productsRepository.update(id, product);
   }
 
