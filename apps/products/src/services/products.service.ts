@@ -17,7 +17,6 @@ export class ProductsService {
   }
 
   async findOne(id: number) {
-    console.log('id', id);
     return await this.productsRepository.findOne({
       where: { id },
     });
@@ -29,11 +28,6 @@ export class ProductsService {
   }
 
   async update(id: number, product: UpdateProductDto) {
-    console.log({ id });
-    const updatedProduct = await this.productsRepository.findOne({
-      where: { id },
-    });
-    console.log({ updatedProduct });
     return this.productsRepository.update(id, product);
   }
 
