@@ -8,21 +8,21 @@ export class Product {
 
   @IsNotEmpty()
   @IsNumber()
-  @Column({ unique: true })
+  @Column('int', { unique: true })
   sku: number;
 
   @IsNotEmpty()
   @IsNumber()
-  @Column()
+  @Column('int')
   id_categoria: number;
 
   @IsNotEmpty()
   @IsString()
-  @Column()
+  @Column('string')
   nombre_producto: string;
 
   @IsString()
-  @Column({ type: 'text' })
+  @Column('varchar', { length: 200 })
   descripcion: string;
 
   @IsNotEmpty()
@@ -32,6 +32,6 @@ export class Product {
 
   @IsNotEmpty()
   @IsNumber()
-  @Column()
+  @Column('int')
   id_estado: number;
 }
